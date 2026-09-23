@@ -3,10 +3,27 @@
 # Hi there, I'm John Kurt Fajutagana 👋
 ### Full-Stack Developer & AI-Augmented Software Builder
 
-[![Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-kurtfajutagana.vercel.app-0070F3?style=for-the-badge)](https://kurtfajutagana.vercel.app)
-[![OJT Status](https://img.shields.io/badge/Status-Available_for_OJT_(Remote%2FHybrid)-059669?style=for-the-badge)](https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=OJT%20Opportunity%20Inquiry)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-John_Kurt_Fajutagana-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/)
-[![Facebook](https://img.shields.io/badge/Facebook-John_Kurt_Fajutagana-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://web.facebook.com/johnkurt.fajutagana)
+<p align="center">
+  <a href="https://kurtfajutagana.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Portfolio-kurtfajutagana.vercel.app-0070F3?style=flat-square" alt="Portfolio" />
+  </a>
+  &nbsp;
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=OJT%20Opportunity%20Inquiry" target="_blank">
+    <img src="https://img.shields.io/badge/⚡_Status-Available_for_OJT-059669?style=flat-square" alt="Status" />
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  &nbsp;
+  <a href="https://web.facebook.com/johnkurt.fajutagana" target="_blank">
+    <img src="https://img.shields.io/badge/Facebook-Profile-1877F2?style=flat-square&logo=facebook&logoColor=white" alt="Facebook" />
+  </a>
+  &nbsp;
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=Inquiry%20/%20OJT%20Opportunity" target="_blank">
+    <img src="https://img.shields.io/badge/Email-Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</p>
 
 <br/>
 
