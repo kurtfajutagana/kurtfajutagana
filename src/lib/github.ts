@@ -25,7 +25,7 @@ export interface PortfolioProject {
   description: string;
   tags: string[];
   githubUrl: string;
-  homepageUrl?: string | null;
+  homepageUrl?: string;
   highlights: string[];
   stars: number;
   forks: number;
@@ -51,7 +51,7 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
       `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`,
       {
         headers,
-        next: { revalidate: 3600 }, // ISR: Revalidate every hour
+        next: { revalidate: 60 }, // Fast ISR revalidation: refresh every 60 seconds
       }
     );
 
@@ -62,9 +62,10 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
 
     const rawRepos: GitHubRawRepo[] = await response.json();
 
-    // Filter out forks and non-active repos if needed, and apply user selection
+    // Filter out forks, archived repos, and the portfolio's own repo itself if needed
     const filteredRepos = rawRepos.filter((repo) => {
       if (repo.fork || repo.archived) return false;
+      if (repo.name.toLowerCase() === githubUsername.toLowerCase()) return false;
 
       const hasCustomMeta = Boolean(customMetadata[repo.name]);
       const hasTopic = repo.topics?.includes(topicTag) || repo.topics?.includes("featured");
@@ -79,7 +80,6 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
     });
 
     if (filteredRepos.length === 0) {
-      // If no repos matched topic yet, fallback to curated list so page is never empty
       return fallbackProjects.map((p, idx) => ({ ...p, id: p.name, order: idx }));
     }
 
@@ -104,6 +104,9 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
         "Open source codebase maintained with structured version control."
       ];
 
+      const rawHomepage = repo.homepage?.trim();
+      const homepageUrl = rawHomepage && rawHomepage.length > 0 ? rawHomepage : meta.homepageUrl;
+
       return {
         id: repo.name,
         name: repo.name,
@@ -113,7 +116,7 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
         description,
         tags,
         githubUrl: repo.html_url,
-        homepageUrl: repo.homepage || undefined,
+        homepageUrl,
         highlights,
         stars: repo.stargazers_count,
         forks: repo.forks_count,
@@ -126,7 +129,6 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
       };
     });
 
-    // Sort by custom order or most recently updated
     return projects.sort((a, b) => a.order - b.order);
   } catch (error) {
     console.error("Error fetching GitHub projects:", error);

@@ -48,7 +48,7 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>("All");
-  const email = "kurtfajutagana@gmail.com";
+  const email = "kurtfajutagana17@gmail.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -645,3 +645,4 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
     </div>
   );
 }
+
