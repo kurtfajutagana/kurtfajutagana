@@ -42,6 +42,34 @@ function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+    </svg>
+  );
+}
+
+function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+  );
+}
+
 interface PortfolioViewProps {
   projects: PortfolioProject[];
 }
@@ -58,6 +86,9 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
   const email = "kurtfajutagana17@gmail.com";
   const primaryPhone = "09271707436";
   const secondaryPhone = "09932492435";
+  const githubUrl = "https://github.com/kurtfajutagana";
+  const linkedinUrl = "https://www.linkedin.com/in/john-kurt-fajutagana/";
+  const facebookUrl = "https://www.facebook.com/kurt.fajutagana.54";
 
   // Real-time background synchronization with GitHub
   const fetchLiveProjects = useCallback(async () => {
@@ -201,10 +232,10 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             </a>
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Action CTAs & Social Links */}
+          <div className="hidden sm:flex items-center gap-2">
             <a
-              href="https://github.com/kurtfajutagana"
+              href={githubUrl}
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800/80 transition-colors"
@@ -213,8 +244,26 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               <GithubIcon className="w-4 h-4" />
             </a>
             <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 rounded-lg text-neutral-400 hover:text-[#0a66c2] hover:bg-neutral-800/80 transition-colors"
+              title="LinkedIn Profile"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 rounded-lg text-neutral-400 hover:text-[#1877f2] hover:bg-neutral-800/80 transition-colors"
+              title="Facebook Profile"
+            >
+              <FacebookIcon className="w-4 h-4" />
+            </a>
+            <a
               href="#contact"
-              className="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm shadow-blue-500/20 transition-all hover:scale-[1.02]"
+              className="ml-1 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm shadow-blue-500/20 transition-all hover:scale-[1.02]"
             >
               Get in Touch
             </a>
@@ -335,27 +384,37 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             </button>
 
             <a 
-              href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
-            >
-              <Mail className="w-4 h-4" /> Send Mail
-            </a>
-
-            <a 
-              href={`tel:${primaryPhone}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
-              title="Call primary phone"
-            >
-              <Phone className="w-4 h-4 text-blue-400" /> {primaryPhone}
-            </a>
-
-            <a 
-              href="https://github.com/kurtfajutagana" 
+              href={githubUrl} 
               target="_blank" 
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
             >
               <GithubIcon className="w-4 h-4" /> GitHub
+            </a>
+
+            <a 
+              href={linkedinUrl} 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-[#0a66c2]"
+            >
+              <LinkedinIcon className="w-4 h-4" /> LinkedIn
+            </a>
+
+            <a 
+              href={facebookUrl} 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-[#1877f2]"
+            >
+              <FacebookIcon className="w-4 h-4" /> Facebook
+            </a>
+
+            <a 
+              href={`mailto:${email}`}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
+            >
+              <Mail className="w-4 h-4" /> Send Mail
             </a>
           </div>
 
@@ -665,7 +724,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               Let&apos;s Build Something Together
             </h2>
             <p className="text-neutral-400 text-sm sm:text-base">
-              I am actively looking for an OJT / software engineering internship opportunity. Reach out directly via email or call/message me on my contact numbers!
+              I am actively looking for an OJT / software engineering internship opportunity. Reach out directly via email, phone, or connect on professional socials!
             </p>
           </div>
 
@@ -754,19 +813,47 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             </div>
 
           </div>
+
+          {/* Social Profiles Bar */}
+          <div className="flex flex-wrap justify-center items-center gap-3 pt-4 border-t border-neutral-800/60">
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0a66c2]/15 hover:bg-[#0a66c2]/25 border border-[#0a66c2]/30 text-[#70b5f9] text-xs font-medium transition-all"
+            >
+              <LinkedinIcon className="w-4 h-4" /> Connect on LinkedIn
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1877f2]/15 hover:bg-[#1877f2]/25 border border-[#1877f2]/30 text-[#7bb4f9] text-xs font-medium transition-all"
+            >
+              <FacebookIcon className="w-4 h-4" /> Message on Facebook
+            </a>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+            >
+              <GithubIcon className="w-4 h-4" /> Follow on GitHub
+            </a>
+          </div>
         </section>
 
         {/* FOOTER */}
         <footer className="border-t border-neutral-800/80 pt-8 pb-12 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500 font-mono">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} Kurt Fajutagana.</span>
+            <span>© {new Date().getFullYear()} John Kurt Fajutagana.</span>
             <span>•</span>
             <span>Built with Next.js & Tailwind CSS.</span>
           </div>
 
           <div className="flex items-center gap-4">
             <a 
-              href="https://github.com/kurtfajutagana" 
+              href={githubUrl} 
               target="_blank" 
               rel="noreferrer" 
               className="hover:text-neutral-300 transition-colors inline-flex items-center gap-1"
@@ -774,16 +861,26 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               <GithubIcon className="w-3.5 h-3.5" /> GitHub
             </a>
             <a 
+              href={linkedinUrl} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="hover:text-[#0a66c2] transition-colors inline-flex items-center gap-1"
+            >
+              <LinkedinIcon className="w-3.5 h-3.5" /> LinkedIn
+            </a>
+            <a 
+              href={facebookUrl} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="hover:text-[#1877f2] transition-colors inline-flex items-center gap-1"
+            >
+              <FacebookIcon className="w-3.5 h-3.5" /> Facebook
+            </a>
+            <a 
               href={`mailto:${email}`}
               className="hover:text-neutral-300 transition-colors inline-flex items-center gap-1"
             >
               <Mail className="w-3.5 h-3.5" /> Email
-            </a>
-            <a 
-              href={`tel:${primaryPhone}`}
-              className="hover:text-neutral-300 transition-colors inline-flex items-center gap-1"
-            >
-              <Phone className="w-3.5 h-3.5" /> Call
             </a>
             <button
               onClick={scrollToTop}
