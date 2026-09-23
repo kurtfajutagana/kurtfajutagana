@@ -62,25 +62,20 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
 
     const rawRepos: GitHubRawRepo[] = await response.json();
 
-    // Filter out forks and archived repos; auto-include any repo with the topicTag or custom metadata
+    // Strictly filter based on topicTag ('portfolio' or 'featured')
     const filteredRepos = rawRepos.filter((repo) => {
       if (repo.fork || repo.archived) return false;
 
-      const hasCustomMeta = Boolean(customMetadata[repo.name]);
       const hasTopic = repo.topics?.includes(topicTag) || repo.topics?.includes("featured");
 
       if (filterStrategy === "topic") {
-        return hasTopic || hasCustomMeta;
+        return hasTopic;
       }
       if (filterStrategy === "curated") {
-        return hasCustomMeta;
+        return Boolean(customMetadata[repo.name]);
       }
       return true;
     });
-
-    if (filteredRepos.length === 0) {
-      return fallbackProjects.map((p, idx) => ({ ...p, id: p.name, order: idx }));
-    }
 
     const projects: PortfolioProject[] = filteredRepos.map((repo, idx) => {
       const meta = customMetadata[repo.name] || {};

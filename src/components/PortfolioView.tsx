@@ -346,104 +346,116 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
           )}
 
           {/* Project Cards List */}
-          <div className="grid gap-8">
-            {filteredProjects.map((proj) => (
-              <div 
-                key={proj.id} 
-                className="group relative rounded-2xl border border-neutral-800/90 bg-neutral-900/40 p-6 sm:p-8 space-y-6 hover:border-neutral-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/20 backdrop-blur-sm"
-              >
-                {/* Subtle card glow on hover */}
-                <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          {filteredProjects.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-neutral-800 bg-neutral-900/30 p-10 text-center space-y-3 backdrop-blur-sm">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mx-auto text-blue-400">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-semibold text-white">No tagged projects found</h3>
+              <p className="text-sm text-neutral-400 max-w-md mx-auto">
+                Add the topic tag <code className="text-blue-400 font-mono px-1.5 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">portfolio</code> to any of your repositories on GitHub to have them appear here automatically.
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-8">
+              {filteredProjects.map((proj) => (
+                <div 
+                  key={proj.id} 
+                  className="group relative rounded-2xl border border-neutral-800/90 bg-neutral-900/40 p-6 sm:p-8 space-y-6 hover:border-neutral-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/20 backdrop-blur-sm"
+                >
+                  {/* Subtle card glow on hover */}
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-                <div className="relative space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono">
-                      {proj.type}
-                    </span>
-
-                    <div className="flex items-center gap-2">
-                      {proj.stars > 0 && (
-                        <span className="inline-flex items-center gap-1 text-xs text-neutral-400 font-mono bg-neutral-900/80 px-2 py-0.5 rounded border border-neutral-800">
-                          <Star className="w-3 h-3 text-amber-400 fill-amber-400/20" /> {proj.stars}
-                        </span>
-                      )}
-                      {proj.forks > 0 && (
-                        <span className="inline-flex items-center gap-1 text-xs text-neutral-400 font-mono bg-neutral-900/80 px-2 py-0.5 rounded border border-neutral-800">
-                          <GitFork className="w-3 h-3" /> {proj.forks}
-                        </span>
-                      )}
-                      <span className="text-xs font-medium text-emerald-400 bg-emerald-950/50 border border-emerald-800/40 px-2 py-0.5 rounded-md">
-                        {proj.status}
+                  <div className="relative space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono">
+                        {proj.type}
                       </span>
+
+                      <div className="flex items-center gap-2">
+                        {proj.stars > 0 && (
+                          <span className="inline-flex items-center gap-1 text-xs text-neutral-400 font-mono bg-neutral-900/80 px-2 py-0.5 rounded border border-neutral-800">
+                            <Star className="w-3 h-3 text-amber-400 fill-amber-400/20" /> {proj.stars}
+                          </span>
+                        )}
+                        {proj.forks > 0 && (
+                          <span className="inline-flex items-center gap-1 text-xs text-neutral-400 font-mono bg-neutral-900/80 px-2 py-0.5 rounded border border-neutral-800">
+                            <GitFork className="w-3 h-3" /> {proj.forks}
+                          </span>
+                        )}
+                        <span className="text-xs font-medium text-emerald-400 bg-emerald-950/50 border border-emerald-800/40 px-2 py-0.5 rounded-md">
+                          {proj.status}
+                        </span>
+                      </div>
                     </div>
+
+                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                      {proj.title}
+                    </h3>
+
+                    <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
+                      {proj.description}
+                    </p>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                    {proj.title}
-                  </h3>
+                  <div className="relative space-y-3 rounded-xl bg-neutral-950/50 p-4 border border-neutral-800/60">
+                    <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider font-mono">
+                      Key Architectural Highlights
+                    </h4>
+                    <ul className="space-y-2">
+                      {proj.highlights.map((h, i) => (
+                        <li key={i} className="text-sm text-neutral-300 flex items-start gap-2.5">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                          <span className="leading-snug">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                  <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
-                    {proj.description}
-                  </p>
-                </div>
-
-                <div className="relative space-y-3 rounded-xl bg-neutral-950/50 p-4 border border-neutral-800/60">
-                  <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider font-mono">
-                    Key Architectural Highlights
-                  </h4>
-                  <ul className="space-y-2">
-                    {proj.highlights.map((h, i) => (
-                      <li key={i} className="text-sm text-neutral-300 flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span className="leading-snug">{h}</span>
-                      </li>
+                  {/* Tech & Topic Tags */}
+                  <div className="relative flex flex-wrap gap-2 pt-1">
+                    {proj.tags.map((tag, i) => (
+                      <span 
+                        key={i} 
+                        className="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-800/60 text-neutral-300 border border-neutral-700/40 group-hover:border-neutral-600/50 transition-colors"
+                      >
+                        {tag}
+                      </span>
                     ))}
-                  </ul>
-                </div>
+                  </div>
 
-                {/* Tech & Topic Tags */}
-                <div className="relative flex flex-wrap gap-2 pt-1">
-                  {proj.tags.map((tag, i) => (
-                    <span 
-                      key={i} 
-                      className="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-800/60 text-neutral-300 border border-neutral-700/40 group-hover:border-neutral-600/50 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Links & Metadata */}
-                <div className="relative pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-neutral-800/60 pt-4">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <a 
-                      href={proj.githubUrl} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-sm font-medium text-white transition-all hover:scale-[1.02]"
-                    >
-                      <GithubIcon className="w-4 h-4" /> View Repository <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
-                    </a>
-
-                    {proj.homepageUrl && (
+                  {/* Action Links & Metadata */}
+                  <div className="relative pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-neutral-800/60 pt-4">
+                    <div className="flex flex-wrap items-center gap-3">
                       <a 
-                        href={proj.homepageUrl} 
+                        href={proj.githubUrl} 
                         target="_blank" 
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-sm font-medium text-blue-300 transition-all"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-sm font-medium text-white transition-all hover:scale-[1.02]"
                       >
-                        <Globe className="w-4 h-4" /> Live Demo
+                        <GithubIcon className="w-4 h-4" /> View Repository <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
                       </a>
-                    )}
-                  </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-mono">
-                    <Calendar className="w-3.5 h-3.5" /> Updated {proj.updatedAt}
+                      {proj.homepageUrl && (
+                        <a 
+                          href={proj.homepageUrl} 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-sm font-medium text-blue-300 transition-all"
+                        >
+                          <Globe className="w-4 h-4" /> Live Demo
+                        </a>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-mono">
+                      <Calendar className="w-3.5 h-3.5" /> Updated {proj.updatedAt}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {/* Helper hint for how the user adds projects */}
           <div className="p-4 rounded-xl border border-dashed border-neutral-800 bg-neutral-900/20 text-xs text-neutral-400 font-mono flex items-center gap-2">
