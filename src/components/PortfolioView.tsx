@@ -87,8 +87,8 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
   const primaryPhone = "09271707436";
   const secondaryPhone = "09932492435";
   const githubUrl = "https://github.com/kurtfajutagana";
-  const linkedinUrl = "https://www.linkedin.com/in/john-kurt-fajutagana/";
-  const facebookUrl = "https://www.facebook.com/kurt.fajutagana.54";
+  const linkedinUrl = "https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/";
+  const facebookUrl = "https://web.facebook.com/johnkurt.fajutagana";
 
   // Real-time background synchronization with GitHub
   const fetchLiveProjects = useCallback(async () => {
