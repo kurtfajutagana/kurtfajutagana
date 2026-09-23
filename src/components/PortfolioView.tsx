@@ -296,7 +296,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
 
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Kurt Fajutagana
+              John Kurt Fajutagana
             </h1>
             <p className="text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-neutral-200 font-semibold">
               Full-Stack Developer & AI-Augmented Software Builder
