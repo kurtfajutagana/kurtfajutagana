@@ -62,10 +62,9 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
 
     const rawRepos: GitHubRawRepo[] = await response.json();
 
-    // Filter out forks, archived repos, and the portfolio's own repo itself if needed
+    // Filter out forks and archived repos; auto-include any repo with the topicTag or custom metadata
     const filteredRepos = rawRepos.filter((repo) => {
       if (repo.fork || repo.archived) return false;
-      if (repo.name.toLowerCase() === githubUsername.toLowerCase()) return false;
 
       const hasCustomMeta = Boolean(customMetadata[repo.name]);
       const hasTopic = repo.topics?.includes(topicTag) || repo.topics?.includes("featured");
@@ -89,7 +88,7 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
       const formattedTitle = meta.title || repo.name.replace(/[-_]/g, " ");
       const type = meta.type || (repo.language ? `${repo.language} Project` : "Full-Stack Project");
       const status = meta.status || "Active Repository";
-      const description = meta.description || repo.description || "A project developed by Kurt Fajutagana.";
+      const description = meta.description || repo.description || `A project developed by ${githubUsername}.`;
       
       // Combine custom tags, primary language, and GitHub topics
       const rawTags = [

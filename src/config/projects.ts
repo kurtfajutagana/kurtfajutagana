@@ -35,7 +35,7 @@ export interface PortfolioConfig {
 export const portfolioConfig: PortfolioConfig = {
   githubUsername: "kurtfajutagana",
   
-  // Repositories under @kurtfajutagana with the topic 'portfolio' or 'featured' or listed below
+  // Any repo under @kurtfajutagana tagged with 'portfolio' or 'featured' or listed below
   filterStrategy: "topic",
   topicTag: "portfolio",
 
@@ -68,6 +68,21 @@ export const portfolioConfig: PortfolioConfig = {
         "Relational MySQL database schema optimized for fast administrative lookups."
       ],
       order: 2,
+      featured: true
+    },
+    "kurtfajutagana": {
+      title: "Kurt Fajutagana — Personal Developer Portfolio",
+      type: "Production Platform • Next.js & Tailwind",
+      status: "Live Website",
+      description: "A high-performance, future-proof developer portfolio engineered with Next.js 16, Tailwind CSS v4, and automated GitHub API repository synchronization.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "GitHub API", "ISR", "Vercel"],
+      homepageUrl: "https://kurtfajutagana.vercel.app",
+      highlights: [
+        "Dynamic GitHub API integration with ISR for zero-maintenance project auto-discovery.",
+        "Engineered with Next.js 16 Turbopack and Tailwind CSS v4 glassmorphic theme.",
+        "Interactive UX with one-click clipboard actions and responsive navigation."
+      ],
+      order: 3,
       featured: true
     }
   },
@@ -109,6 +124,25 @@ export const portfolioConfig: PortfolioConfig = {
       stars: 0,
       forks: 0,
       language: "PHP",
+      updatedAt: "2026-09-24"
+    },
+    {
+      name: "kurtfajutagana",
+      title: "Kurt Fajutagana — Personal Developer Portfolio",
+      type: "Production Platform • Next.js & Tailwind",
+      status: "Live Website",
+      description: "A high-performance, future-proof developer portfolio engineered with Next.js 16, Tailwind CSS v4, and automated GitHub API repository synchronization.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "GitHub API", "ISR", "Vercel"],
+      githubUrl: "https://github.com/kurtfajutagana/kurtfajutagana",
+      homepageUrl: "https://kurtfajutagana.vercel.app",
+      highlights: [
+        "Dynamic GitHub API integration with ISR for zero-maintenance project auto-discovery.",
+        "Engineered with Next.js 16 Turbopack and Tailwind CSS v4 glassmorphic theme.",
+        "Interactive UX with one-click clipboard actions and responsive navigation."
+      ],
+      stars: 0,
+      forks: 0,
+      language: "TypeScript",
       updatedAt: "2026-09-24"
     }
   ]
