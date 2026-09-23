@@ -23,7 +23,8 @@ import {
   GitFork,
   Calendar,
   Sparkle,
-  RefreshCw
+  RefreshCw,
+  Phone
 } from "lucide-react";
 import { PortfolioProject } from "@/lib/github";
 
@@ -49,10 +50,14 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
   const [projects, setProjects] = useState<PortfolioProject[]>(initialProjects);
   const [isSyncing, setIsSyncing] = useState(false);
   const [lastSyncTime, setLastSyncTime] = useState<string>("just now");
-  const [copied, setCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>("All");
-  const email = "kurtfajutagana@gmail.com";
+
+  const email = "kurtfajutagana17@gmail.com";
+  const primaryPhone = "09271707436";
+  const secondaryPhone = "09932492435";
 
   // Real-time background synchronization with GitHub
   const fetchLiveProjects = useCallback(async () => {
@@ -73,7 +78,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
     }
   }, []);
 
-  // Auto-sync on window focus (when switching from GitHub tab back to portfolio) and on interval
+  // Auto-sync on window focus and on interval
   useEffect(() => {
     const handleFocus = () => {
       fetchLiveProjects();
@@ -88,7 +93,6 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
     window.addEventListener("focus", handleFocus);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    // Background interval poll every 15 seconds
     const interval = setInterval(fetchLiveProjects, 15000);
 
     return () => {
@@ -100,8 +104,14 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleCopyPhone = (phoneNumber: string) => {
+    navigator.clipboard.writeText(phoneNumber);
+    setCopiedPhone(phoneNumber);
+    setTimeout(() => setCopiedPhone(null), 2000);
   };
 
   const scrollToTop = () => {
@@ -311,10 +321,10 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 active:scale-95"
               title="Copy email address"
             >
-              {copied ? (
+              {copiedEmail ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 font-medium">Copied!</span>
+                  <span className="text-emerald-400 font-medium">Copied Email!</span>
                 </>
               ) : (
                 <>
@@ -325,19 +335,27 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             </button>
 
             <a 
+              href={`mailto:${email}`}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
+            >
+              <Mail className="w-4 h-4" /> Send Mail
+            </a>
+
+            <a 
+              href={`tel:${primaryPhone}`}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
+              title="Call primary phone"
+            >
+              <Phone className="w-4 h-4 text-blue-400" /> {primaryPhone}
+            </a>
+
+            <a 
               href="https://github.com/kurtfajutagana" 
               target="_blank" 
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
             >
               <GithubIcon className="w-4 h-4" /> GitHub
-            </a>
-
-            <a 
-              href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
-            >
-              <Mail className="w-4 h-4" /> Send Mail
             </a>
           </div>
 
@@ -638,44 +656,103 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
         </section>
 
         {/* CONTACT / CALL TO ACTION */}
-        <section id="contact" className="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8 sm:p-10 text-center space-y-6 scroll-mt-24 backdrop-blur-md shadow-2xl shadow-black/40">
-          <div className="inline-flex p-3 rounded-2xl bg-blue-600/10 text-blue-400 border border-blue-500/20">
-            <Mail className="w-6 h-6" />
-          </div>
-
-          <div className="space-y-2 max-w-xl mx-auto">
+        <section id="contact" className="rounded-3xl border border-neutral-800 bg-neutral-900/50 p-8 sm:p-10 space-y-8 scroll-mt-24 backdrop-blur-md shadow-2xl shadow-black/40">
+          <div className="text-center space-y-3 max-w-xl mx-auto">
+            <div className="inline-flex p-3 rounded-2xl bg-blue-600/10 text-blue-400 border border-blue-500/20">
+              <Mail className="w-6 h-6" />
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Let&apos;s Build Something Together
             </h2>
             <p className="text-neutral-400 text-sm sm:text-base">
-              I am actively looking for an OJT / software engineering internship opportunity. Whether you have an opening, a project to collaborate on, or just want to chat, my inbox is open!
+              I am actively looking for an OJT / software engineering internship opportunity. Reach out directly via email or call/message me on my contact numbers!
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 pt-2">
-            <a 
-              href={`mailto:${email}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-600/20 hover:scale-[1.02]"
-            >
-              <Mail className="w-4 h-4" /> Send Direct Email
-            </a>
+          {/* Contact Details Grid */}
+          <div className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             
-            <button
-              onClick={handleCopyEmail}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 bg-neutral-800/80 hover:bg-neutral-700 text-neutral-200 text-sm font-medium transition-all"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400">Email Copied to Clipboard</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 text-neutral-400" />
-                  <span>Copy: {email}</span>
-                </>
-              )}
-            </button>
+            {/* Email Card */}
+            <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80 space-y-3 flex flex-col justify-between">
+              <div className="space-y-1">
+                <span className="text-xs font-mono uppercase text-blue-400 flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5" /> Email
+                </span>
+                <p className="text-xs text-neutral-200 font-mono break-all font-medium">
+                  {email}
+                </p>
+              </div>
+              <div className="flex gap-2 pt-2">
+                <a 
+                  href={`mailto:${email}`}
+                  className="flex-1 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium text-center transition-colors"
+                >
+                  Send Mail
+                </a>
+                <button
+                  onClick={handleCopyEmail}
+                  className="px-2.5 py-1.5 rounded-lg border border-neutral-800 hover:border-neutral-700 bg-neutral-900 text-neutral-300 text-xs transition-colors"
+                  title="Copy email"
+                >
+                  {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Primary Phone Card */}
+            <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80 space-y-3 flex flex-col justify-between">
+              <div className="space-y-1">
+                <span className="text-xs font-mono uppercase text-emerald-400 flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5" /> Contact 1
+                </span>
+                <p className="text-xs text-neutral-200 font-mono font-medium">
+                  {primaryPhone}
+                </p>
+              </div>
+              <div className="flex gap-2 pt-2">
+                <a 
+                  href={`tel:${primaryPhone}`}
+                  className="flex-1 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium text-center transition-colors"
+                >
+                  Call
+                </a>
+                <button
+                  onClick={() => handleCopyPhone(primaryPhone)}
+                  className="px-2.5 py-1.5 rounded-lg border border-neutral-800 hover:border-neutral-700 bg-neutral-900 text-neutral-300 text-xs transition-colors"
+                  title="Copy phone"
+                >
+                  {copiedPhone === primaryPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Secondary Phone Card */}
+            <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80 space-y-3 flex flex-col justify-between">
+              <div className="space-y-1">
+                <span className="text-xs font-mono uppercase text-indigo-400 flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5" /> Contact 2
+                </span>
+                <p className="text-xs text-neutral-200 font-mono font-medium">
+                  {secondaryPhone}
+                </p>
+              </div>
+              <div className="flex gap-2 pt-2">
+                <a 
+                  href={`tel:${secondaryPhone}`}
+                  className="flex-1 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium text-center transition-colors"
+                >
+                  Call
+                </a>
+                <button
+                  onClick={() => handleCopyPhone(secondaryPhone)}
+                  className="px-2.5 py-1.5 rounded-lg border border-neutral-800 hover:border-neutral-700 bg-neutral-900 text-neutral-300 text-xs transition-colors"
+                  title="Copy phone"
+                >
+                  {copiedPhone === secondaryPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -701,6 +778,12 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               className="hover:text-neutral-300 transition-colors inline-flex items-center gap-1"
             >
               <Mail className="w-3.5 h-3.5" /> Email
+            </a>
+            <a 
+              href={`tel:${primaryPhone}`}
+              className="hover:text-neutral-300 transition-colors inline-flex items-center gap-1"
+            >
+              <Phone className="w-3.5 h-3.5" /> Call
             </a>
             <button
               onClick={scrollToTop}
