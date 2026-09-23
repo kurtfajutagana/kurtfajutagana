@@ -89,6 +89,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
   const githubUrl = "https://github.com/kurtfajutagana";
   const linkedinUrl = "https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/";
   const facebookUrl = "https://web.facebook.com/johnkurt.fajutagana";
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent("Inquiry / OJT Opportunity")}`;
 
   // Real-time background synchronization with GitHub
   const fetchLiveProjects = useCallback(async () => {
@@ -411,10 +412,12 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             </a>
 
             <a 
-              href={`mailto:${email}`}
+              href={gmailComposeUrl}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
             >
-              <Mail className="w-4 h-4" /> Send Mail
+              <Mail className="w-4 h-4" /> Send Email
             </a>
           </div>
 
@@ -743,10 +746,12 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               </div>
               <div className="flex gap-2 pt-2">
                 <a 
-                  href={`mailto:${email}`}
+                  href={gmailComposeUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex-1 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium text-center transition-colors"
                 >
-                  Send Mail
+                  Send Email
                 </a>
                 <button
                   onClick={handleCopyEmail}
@@ -877,7 +882,9 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               <FacebookIcon className="w-3.5 h-3.5" /> Facebook
             </a>
             <a 
-              href={`mailto:${email}`}
+              href={gmailComposeUrl}
+              target="_blank" 
+              rel="noreferrer" 
               className="hover:text-neutral-300 transition-colors inline-flex items-center gap-1"
             >
               <Mail className="w-3.5 h-3.5" /> Email
