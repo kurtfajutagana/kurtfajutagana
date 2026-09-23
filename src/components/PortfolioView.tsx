@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { 
   Mail, 
   ExternalLink, 
@@ -22,7 +22,8 @@ import {
   Star,
   GitFork,
   Calendar,
-  Sparkle
+  Sparkle,
+  RefreshCw
 } from "lucide-react";
 import { PortfolioProject } from "@/lib/github";
 
@@ -44,11 +45,58 @@ interface PortfolioViewProps {
   projects: PortfolioProject[];
 }
 
-export default function PortfolioView({ projects }: PortfolioViewProps) {
+export default function PortfolioView({ projects: initialProjects }: PortfolioViewProps) {
+  const [projects, setProjects] = useState<PortfolioProject[]>(initialProjects);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [lastSyncTime, setLastSyncTime] = useState<string>("just now");
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedTag, setSelectedTag] = useState<string>("All");
-  const email = "kurtfajutagana17@gmail.com";
+  const email = "kurtfajutagana@gmail.com";
+
+  // Real-time background synchronization with GitHub
+  const fetchLiveProjects = useCallback(async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch("/api/projects", { cache: "no-store" });
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data.projects)) {
+          setProjects(data.projects);
+          setLastSyncTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+        }
+      }
+    } catch (err) {
+      console.error("Real-time sync failed:", err);
+    } finally {
+      setIsSyncing(false);
+    }
+  }, []);
+
+  // Auto-sync on window focus (when switching from GitHub tab back to portfolio) and on interval
+  useEffect(() => {
+    const handleFocus = () => {
+      fetchLiveProjects();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        fetchLiveProjects();
+      }
+    };
+
+    window.addEventListener("focus", handleFocus);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Background interval poll every 15 seconds
+    const interval = setInterval(fetchLiveProjects, 15000);
+
+    return () => {
+      window.removeEventListener("focus", handleFocus);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      clearInterval(interval);
+    };
+  }, [fetchLiveProjects]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -309,7 +357,7 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
 
         </section>
 
-        {/* FEATURED PROJECTS (DYNAMIC GITHUB INTEGRATION) */}
+        {/* FEATURED PROJECTS (DYNAMIC REALTIME GITHUB INTEGRATION) */}
         <section id="projects" className="space-y-8 scroll-mt-24">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800 pb-4 gap-4">
             <div className="space-y-1">
@@ -319,10 +367,21 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
               <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Featured Systems & Repositories</h2>
             </div>
             
-            {/* Auto-Sync Indicator Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-neutral-900 border border-neutral-800 text-neutral-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-              <span>Synced with @kurtfajutagana</span>
+            {/* Realtime Auto-Sync Status Badge & Manual Trigger */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={fetchLiveProjects}
+                disabled={isSyncing}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-neutral-300 transition-colors disabled:opacity-50"
+                title={`Last synced: ${lastSyncTime}. Click to force sync immediately.`}
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span>Live Sync</span>
+                <RefreshCw className={`w-3 h-3 text-neutral-400 ${isSyncing ? "animate-spin text-blue-400" : ""}`} />
+              </button>
             </div>
           </div>
 
@@ -353,7 +412,7 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
               </div>
               <h3 className="text-base font-semibold text-white">No tagged projects found</h3>
               <p className="text-sm text-neutral-400 max-w-md mx-auto">
-                Add the topic tag <code className="text-blue-400 font-mono px-1.5 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">portfolio</code> to any of your repositories on GitHub to have them appear here automatically.
+                Add the topic tag <code className="text-blue-400 font-mono px-1.5 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">portfolio</code> to any of your repositories on GitHub to have them appear here in real-time.
               </p>
             </div>
           ) : (
@@ -461,7 +520,7 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
           <div className="p-4 rounded-xl border border-dashed border-neutral-800 bg-neutral-900/20 text-xs text-neutral-400 font-mono flex items-center gap-2">
             <Sparkle className="w-4 h-4 text-blue-400 shrink-0" />
             <span>
-              <strong>Smart Auto-Discovery:</strong> Any repo in your GitHub account (<code className="text-neutral-300">@kurtfajutagana</code>) tagged with topic <code className="text-blue-400 font-bold">portfolio</code> will automatically appear here!
+              <strong>Smart Auto-Discovery:</strong> Any repo in your GitHub account (<code className="text-neutral-300">@kurtfajutagana</code>) tagged with topic <code className="text-blue-400 font-bold">portfolio</code> will automatically sync and appear here!
             </span>
           </div>
         </section>
@@ -657,4 +716,3 @@ export default function PortfolioView({ projects }: PortfolioViewProps) {
     </div>
   );
 }
-

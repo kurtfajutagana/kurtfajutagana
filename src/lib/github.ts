@@ -34,7 +34,7 @@ export interface PortfolioProject {
   order: number;
 }
 
-export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
+export async function getPortfolioProjects(forceFresh = false): Promise<PortfolioProject[]> {
   const { githubUsername, filterStrategy, topicTag, customMetadata, fallbackProjects } = portfolioConfig;
 
   try {
@@ -47,12 +47,13 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
       headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
     }
 
+    const fetchOptions: RequestInit = forceFresh
+      ? { headers, cache: "no-store" }
+      : { headers, next: { revalidate: 60 } };
+
     const response = await fetch(
       `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`,
-      {
-        headers,
-        next: { revalidate: 60 }, // Fast ISR revalidation: refresh every 60 seconds
-      }
+      fetchOptions
     );
 
     if (!response.ok) {
