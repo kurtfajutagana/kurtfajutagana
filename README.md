@@ -61,6 +61,10 @@
 ### 📂 Featured Systems & Repositories
 
 <!-- PROJECTS:START -->
+#### 📌 [Faculty-Profiling-System](https://github.com/kurtfajutagana/Faculty-Profiling-System) 
+> 🎓 Cloud-ready Faculty Profiling and Academic Portfolio Management System for Pamantasan ng Lungsod ng Pasig (PLP) • 🏷️ `PHP`
+- 🔗 [🌐 **Live Demo**](https://faculty-profiling-system.onrender.com) • [💻 **Source Code**](https://github.com/kurtfajutagana/Faculty-Profiling-System)
+
 #### 📌 [kurtfajutagana](https://github.com/kurtfajutagana/kurtfajutagana) 
 > Personal developer portfolio & GitHub profile engineered with Next.js 16, Tailwind CSS v4, and real-time GitHub repository auto-discovery. • 🏷️ `TypeScript`
 - 🔗 [🌐 **Live Demo**](https://kurtfajutagana.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/kurtfajutagana)
@@ -73,10 +77,6 @@
 > 🏥 A Web-Based Dental Prescription and Treatment Monitoring System with an AI-Powered Conversational Assistant. • 🏷️ `JavaScript`
 - 🔗 [🌐 **Live Demo**](https://teethtalk.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/DAMS)
 
-#### 📌 [Faculty-Profiling-System](https://github.com/kurtfajutagana/Faculty-Profiling-System) 
-> 🎓 Cloud-ready Faculty Profiling and Academic Portfolio Management System for Pamantasan ng Lungsod ng Pasig (PLP) • 🏷️ `PHP`
-- 🔗 [🌐 **Live Demo**](https://faculty-profiling-system.onrender.com) • [💻 **Source Code**](https://github.com/kurtfajutagana/Faculty-Profiling-System)
-
 <!-- PROJECTS:END -->
 
 ---
@@ -88,7 +88,7 @@
 
 | 📦 **Public Repos** | ⭐ **Total Stars** | 🍴 **Total Forks** | 🛠️ **Primary Stacks** |
 | :---: | :---: | :---: | :---: |
-| **4** | **0** | **3** | `TypeScript` (2) • `JavaScript` (1) • `PHP` (1) |
+| **4** | **0** | **3** | `TypeScript` (2) • `PHP` (1) • `JavaScript` (1) |
 
 <br/>
 
