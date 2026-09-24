@@ -40,6 +40,21 @@ export const portfolioConfig: PortfolioConfig = {
   topicTag: "portfolio",
 
   customMetadata: {
+    "PG-WasmLab": {
+      title: "PG-WasmLab — WebAssembly PostgreSQL Lab & Profiler",
+      type: "WASM Architecture • Database Engineering",
+      status: "Production Ready",
+      description: "Zero-server, in-browser PostgreSQL 16 instance, visual EXPLAIN ANALYZE plan profiler, and interactive indexing performance lab powered by WebAssembly (PGlite).",
+      tags: ["TypeScript", "PostgreSQL", "WebAssembly", "PGlite", "Next.js", "Tailwind CSS"],
+      homepageUrl: "https://pg-wasm-lab.vercel.app/",
+      highlights: [
+        "Client-side Postgres 16 engine running purely in WebAssembly with zero backend overhead.",
+        "Interactive visual EXPLAIN ANALYZE execution plan breakdown and cost estimation.",
+        "Indexing performance testing lab with IndexedDB browser persistence."
+      ],
+      order: 1,
+      featured: true
+    },
     "DAMS": {
       title: "DAMS — Dental Appointment & Management System",
       type: "Capstone Project • Full-Stack & AI",
@@ -52,7 +67,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Role-based access control (RBAC) supporting clinic staff, dentists, and patients.",
         "Structured electronic prescription and treatment record monitoring with auditability."
       ],
-      order: 1,
+      order: 2,
       featured: true
     },
     "Faculty-Profiling-System": {
@@ -67,7 +82,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Centralized teaching load allocation and departmental categorization.",
         "Relational MySQL database schema optimized for fast administrative lookups."
       ],
-      order: 2,
+      order: 3,
       featured: true
     },
     "kurtfajutagana": {
@@ -82,12 +97,31 @@ export const portfolioConfig: PortfolioConfig = {
         "Engineered with Next.js 16 Turbopack and Tailwind CSS v4 glassmorphic theme.",
         "Interactive UX with one-click clipboard actions and responsive navigation."
       ],
-      order: 3,
+      order: 4,
       featured: true
     }
   },
 
   fallbackProjects: [
+    {
+      name: "PG-WasmLab",
+      title: "PG-WasmLab — WebAssembly PostgreSQL Lab & Profiler",
+      type: "WASM Architecture • Database Engineering",
+      status: "Production Ready",
+      description: "Zero-server, in-browser PostgreSQL 16 instance, visual EXPLAIN ANALYZE plan profiler, and interactive indexing performance lab powered by WebAssembly (PGlite).",
+      tags: ["TypeScript", "PostgreSQL", "WebAssembly", "PGlite", "Next.js", "Tailwind CSS"],
+      githubUrl: "https://github.com/kurtfajutagana/PG-WasmLab",
+      homepageUrl: "https://pg-wasm-lab.vercel.app/",
+      highlights: [
+        "Client-side Postgres 16 engine running purely in WebAssembly with zero backend overhead.",
+        "Interactive visual EXPLAIN ANALYZE execution plan breakdown and cost estimation.",
+        "Indexing performance testing lab with IndexedDB browser persistence."
+      ],
+      stars: 0,
+      forks: 0,
+      language: "TypeScript",
+      updatedAt: "2026-09-24"
+    },
     {
       name: "DAMS",
       title: "DAMS — Dental Appointment & Management System",
