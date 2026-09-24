@@ -61,13 +61,13 @@
 ### 📂 Featured Systems & Repositories
 
 <!-- PROJECTS:START -->
-#### 📌 [Faculty-Profiling-System](https://github.com/kurtfajutagana/Faculty-Profiling-System) 
-> 🎓 Cloud-ready Faculty Profiling and Academic Portfolio Management System for Pamantasan ng Lungsod ng Pasig (PLP) • 🏷️ `PHP`
-- 🔗 [🌐 **Live Demo**](https://faculty-profiling-system.onrender.com) • [💻 **Source Code**](https://github.com/kurtfajutagana/Faculty-Profiling-System)
-
 #### 📌 [kurtfajutagana](https://github.com/kurtfajutagana/kurtfajutagana) 
 > Personal developer portfolio & GitHub profile engineered with Next.js 16, Tailwind CSS v4, and real-time GitHub repository auto-discovery. • 🏷️ `TypeScript`
 - 🔗 [🌐 **Live Demo**](https://kurtfajutagana.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/kurtfajutagana)
+
+#### 📌 [Faculty-Profiling-System](https://github.com/kurtfajutagana/Faculty-Profiling-System) 
+> 🎓 Cloud-ready Faculty Profiling and Academic Portfolio Management System for Pamantasan ng Lungsod ng Pasig (PLP) • 🏷️ `PHP`
+- 🔗 [🌐 **Live Demo**](https://faculty-profiling-system.onrender.com) • [💻 **Source Code**](https://github.com/kurtfajutagana/Faculty-Profiling-System)
 
 #### 📌 [PG-WasmLab](https://github.com/kurtfajutagana/PG-WasmLab) 
 > Zero-server, in-browser PostgreSQL 16 instance, visual EXPLAIN ANALYZE plan profiler, and interactive indexing performance lab powered by WebAssembly (PGlite). • 🏷️ `TypeScript`
