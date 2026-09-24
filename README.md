@@ -60,36 +60,40 @@
 
 ### 📂 Featured Systems & Repositories
 
-#### 🦷 [DAMS — Dental Appointment & Management System](https://github.com/kurtfajutagana/DAMS)
-> **Capstone Project • Full-Stack & Conversational AI**  
-> *A web-based clinical monitoring system engineered for dental practices with an AI conversational assistant for patient triage, electronic prescriptions, and clinic workflows.*
-- 🤖 **AI Assistant:** Automated patient inquiries and pre-consultation workflow.
-- 🛡️ **Role-Based Access Control:** Secure RBAC for clinic staff, dentists, and patients.
-- 🔗 **[🌐 Live Demo](https://teethtalk.vercel.app)** • **[💻 View Repository](https://github.com/kurtfajutagana/DAMS)**
+<!-- PROJECTS:START -->
+#### 📌 [kurtfajutagana](https://github.com/kurtfajutagana/kurtfajutagana) 
+> Personal developer portfolio & GitHub profile engineered with Next.js 16, Tailwind CSS v4, and real-time GitHub repository auto-discovery. • 🏷️ `TypeScript`
+- 🔗 [🌐 **Live Demo**](https://kurtfajutagana.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/kurtfajutagana)
 
-#### 🎓 [Academic Faculty Profiling System](https://github.com/kurtfajutagana/Faculty-Profiling-System)
-> **Institutional Platform • Backend Architecture**  
-> *A centralized platform replacing manual administrative record-keeping. Manages institutional faculty credentials, teaching loads, and departmental assignments.*
-- ⚡ **CRUD Architecture:** End-to-end faculty profile management and portfolio tracking.
-- 🗄️ **Relational MySQL:** Optimized relational schema for fast administrative lookups.
-- 🔗 **[🌐 Live Demo](https://faculty-profiling-system.onrender.com)** • **[💻 View Repository](https://github.com/kurtfajutagana/Faculty-Profiling-System)**
+#### 📌 [DAMS](https://github.com/kurtfajutagana/DAMS) 
+> 🏥 A Web-Based Dental Prescription and Treatment Monitoring System with an AI-Powered Conversational Assistant. • 🏷️ `JavaScript`
+- 🔗 [🌐 **Live Demo**](https://teethtalk.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/DAMS)
 
-#### ⚡ [Personal Developer Portfolio](https://github.com/kurtfajutagana/kurtfajutagana)
-> **Production Platform • Next.js 16 & Tailwind CSS v4**  
-> *A high-performance portfolio featuring real-time GitHub repository auto-discovery, ISR caching, and interactive glassmorphic UI.*
-- 🔄 **Real-Time Auto-Discovery:** Automatically syncs any repo tagged with `portfolio` under `@kurtfajutagana`.
-- 🔗 **[🌐 Live Website](https://kurtfajutagana.vercel.app)** • **[💻 View Repository](https://github.com/kurtfajutagana/kurtfajutagana)**
+#### 📌 [Faculty-Profiling-System](https://github.com/kurtfajutagana/Faculty-Profiling-System) 
+> 🎓 Cloud-ready Faculty Profiling and Academic Portfolio Management System for Pamantasan ng Lungsod ng Pasig (PLP) • 🏷️ `PHP`
+- 🔗 [🌐 **Live Demo**](https://faculty-profiling-system.onrender.com) • [💻 **Source Code**](https://github.com/kurtfajutagana/Faculty-Profiling-System)
+
+<!-- PROJECTS:END -->
 
 ---
 
 ### 📊 GitHub Activity & Stats
 
+<!-- STATS:START -->
 <div align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=kurtfajutagana&show_icons=true&theme=tokyonight&hide_border=true&bg_color=09090b&title_color=3b82f6&icon_color=60a5fa&text_color=e4e4e7" height="165" alt="Kurt's GitHub Stats" />
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=kurtfajutagana&layout=compact&theme=tokyonight&hide_border=true&bg_color=09090b&title_color=3b82f6&text_color=e4e4e7" height="165" alt="Top Languages" />
-  <br/><br/>
-  <img src="https://streak-stats.demolab.com?user=kurtfajutagana&theme=tokyonight&hide_border=true&background=09090b&ring=3b82f6&fire=3b82f6&currStreakLabel=60a5fa" height="165" alt="GitHub Streak" />
+
+| 📦 **Public Repos** | ⭐ **Total Stars** | 🍴 **Total Forks** | 🛠️ **Primary Stacks** |
+| :---: | :---: | :---: | :---: |
+| **4** | **0** | **3** | `TypeScript` (2) • `JavaScript` (1) • `PHP` (1) |
+
+<br/>
+
+<a href="https://github.com/kurtfajutagana">
+  <img src="https://streak-stats.demolab.com?user=kurtfajutagana&theme=tokyonight&hide_border=true&background=09090b&ring=3b82f6&fire=3b82f6&currStreakLabel=60a5fa" alt="GitHub Streak" />
+</a>
+
 </div>
+<!-- STATS:END -->
 
 ---
 

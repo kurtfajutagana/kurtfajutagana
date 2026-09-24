@@ -1,0 +1,45 @@
+name: Auto-Sync Profile README
+
+on:
+  schedule:
+    # Run every 6 hours automatically
+    - cron: "0 */6 * * *"
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab anytime
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/**"
+      - ".github/workflows/**"
+
+jobs:
+  sync-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: ⚡ Run README Sync Script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-readme.mjs
+
+      - name: 🚀 Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(auto-sync): update README projects and stats [skip ci]"
+            git push
+          else
+            echo "No changes detected in README.md."
+          fi
