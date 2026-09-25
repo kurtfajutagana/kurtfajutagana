@@ -289,7 +289,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               />
             </div>
             <span className="font-semibold text-sm tracking-tight text-neutral-200 group-hover:text-white transition-colors hidden sm:inline-block">
-              Kurt Fajutagana
+              John Kurt Fajutagana
             </span>
           </a>
 
@@ -433,18 +433,50 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             Available for Part-Time Remote Technical & Web Support | Flexible Hours
           </div>
 
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              John Kurt Fajutagana
-            </h1>
-            <p className="text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-neutral-200 font-semibold">
-              AI-Augmented Technical VA & Web Specialist
-            </p>
-          </div>
+          <div className="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-6 md:gap-10">
+            {/* Left Column: Title, Subtitle, Bio */}
+            <div className="space-y-4 flex-1">
+              <div className="space-y-2">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                  John Kurt Fajutagana
+                </h1>
+                <p className="text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-neutral-200 font-semibold">
+                  AI-Augmented Technical VA & Web Specialist
+                </p>
+              </div>
 
-          <p className="text-neutral-300 leading-relaxed max-w-2xl text-base sm:text-lg">
-            4th-year BS Information Technology candidate helping business owners and founders maintain web platforms, fix frontend & database bugs, and wire up fast automated workflows. Fast turnaround backed by modern AI-accelerated implementation.
-          </p>
+              <p className="text-neutral-300 leading-relaxed max-w-xl text-base sm:text-lg">
+                4th-year BS Information Technology candidate helping business owners and founders maintain web platforms, fix frontend & database bugs, and wire up fast automated workflows. Fast turnaround backed by modern AI-accelerated implementation.
+              </p>
+            </div>
+
+            {/* Right Column: Portrait Photo Card */}
+            <div className="relative group shrink-0 self-center md:self-auto">
+              {/* Subtle ambient glow */}
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-blue-600/30 via-indigo-500/20 to-cyan-400/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-3xl p-1.5 bg-neutral-900/80 border border-white/10 shadow-2xl shadow-blue-950/40 backdrop-blur-md">
+                <div className="relative w-full h-full rounded-[22px] overflow-hidden">
+                  <Image
+                    src="/profile.jpg"
+                    alt="John Kurt Fajutagana"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                </div>
+
+                {/* Floating status pill */}
+                <div className="absolute bottom-2.5 inset-x-2.5 py-1 px-2.5 rounded-xl bg-[#09090b]/85 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-300 flex items-center justify-between shadow-lg">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="text-emerald-400 font-medium">Available</span>
+                  </span>
+                  <span className="text-blue-400 font-semibold">BSIT &apos;26</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Quick CTAs & Contact Actions */}
           <div className="flex flex-wrap gap-3 pt-2 items-center">
