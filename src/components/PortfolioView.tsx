@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { 
   Mail, 
   ExternalLink, 
@@ -276,10 +277,17 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
       {/* STICKY FROSTED NAVBAR */}
       <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#09090b]/80 border-b border-white/5 transition-all">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white text-sm shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-              KF
-            </span>
+          <a href="#" className="flex items-center gap-2.5 group">
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-1 ring-white/15 shadow-md shadow-blue-500/20 group-hover:scale-105 group-hover:ring-blue-500/40 transition-all bg-neutral-800 shrink-0">
+              <Image
+                src="/profile.jpg"
+                alt="Kurt Fajutagana"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
             <span className="font-semibold text-sm tracking-tight text-neutral-200 group-hover:text-white transition-colors hidden sm:inline-block">
               Kurt Fajutagana
             </span>
