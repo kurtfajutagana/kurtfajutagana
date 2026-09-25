@@ -24,7 +24,11 @@ import {
   Calendar,
   Sparkle,
   RefreshCw,
-  Phone
+  Phone,
+  Wrench,
+  Bot,
+  Zap,
+  ShieldCheck
 } from "lucide-react";
 import { PortfolioProject } from "@/lib/github";
 
@@ -89,7 +93,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
   const githubUrl = "https://github.com/kurtfajutagana";
   const linkedinUrl = "https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/";
   const facebookUrl = "https://web.facebook.com/johnkurt.fajutagana";
-  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent("Inquiry / OJT Opportunity")}`;
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent("Technical Web Support / Project Inquiry")}`;
 
   // Real-time background synchronization with GitHub
   const fetchLiveProjects = useCallback(async () => {
@@ -150,6 +154,73 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const services = [
+    {
+      title: "Website Maintenance & Bug Fixes",
+      category: "Frontend & UI Care",
+      icon: Wrench,
+      accent: "from-blue-500/15 via-blue-900/10 to-transparent",
+      border: "border-blue-500/30",
+      iconColor: "text-blue-400",
+      description: "Fast fixes for mobile layout breaks, CSS & Tailwind styling glitches, broken buttons/forms, and cross-browser responsiveness.",
+      features: [
+        "Mobile & tablet responsive layout repairs",
+        "Tailwind CSS / styling tweaks & updates",
+        "Form validation & JavaScript debugging",
+        "Zero-downtime updates on safe previews"
+      ],
+      tags: ["Tailwind CSS", "React / Next.js", "HTML5 / CSS3", "Responsive UI"]
+    },
+    {
+      title: "Automations & Database Flows",
+      category: "Backend & Integrations",
+      icon: Database,
+      accent: "from-emerald-500/15 via-emerald-900/10 to-transparent",
+      border: "border-emerald-500/30",
+      iconColor: "text-emerald-400",
+      description: "Connecting web forms to Supabase/PostgreSQL backends, webhook automations, and eliminating manual data entry bottlenecks.",
+      features: [
+        "Supabase & PostgreSQL setup & table wiring",
+        "Form submissions & webhook connections",
+        "Spreadsheet-to-database cleanups",
+        "Relational schemas & structured queries"
+      ],
+      tags: ["PostgreSQL", "Supabase", "MySQL", "Webhooks / APIs"]
+    },
+    {
+      title: "Landing Pages & Web Operations",
+      category: "Deployment & Setup",
+      icon: Globe,
+      accent: "from-indigo-500/15 via-indigo-900/10 to-transparent",
+      border: "border-indigo-500/30",
+      iconColor: "text-indigo-400",
+      description: "Deploying high-speed landing pages, configuring custom domains/DNS, and maintaining client web properties.",
+      features: [
+        "Vercel & cloud hosting deployments",
+        "Custom domain routing & SSL setup",
+        "Page speed & performance optimizations",
+        "Safe staging previews before publishing"
+      ],
+      tags: ["Vercel", "Domain / DNS", "Next.js", "Git & GitHub"]
+    },
+    {
+      title: "AI Workflows & Smart Chatbots",
+      category: "AI Integration",
+      icon: Bot,
+      accent: "from-purple-500/15 via-purple-900/10 to-transparent",
+      border: "border-purple-500/30",
+      iconColor: "text-purple-400",
+      description: "Integrating conversational AI assistants, customer inquiry chatbots, and automated triage workflows into existing sites.",
+      features: [
+        "Customer inquiry & lead intake chatbots",
+        "LLM API integration (OpenAI / Claude / Gemini)",
+        "Automated pre-consultation triage flows",
+        "Custom prompt configuration for business FAQs"
+      ],
+      tags: ["AI Chatbots", "OpenAI / Claude", "Prompt Engineering", "Lead Triage"]
+    }
+  ];
+
   const skillGroups = [
     {
       category: "Frontend & UI",
@@ -175,10 +246,10 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
   ];
 
   const stats = [
-    { label: "Academic Standing", value: "4th-Year BSIT" },
-    { label: "Core Stack", value: "Full-Stack & SQL" },
-    { label: "Methodology", value: "AI-Augmented Dev" },
-    { label: "Availability", value: "Ready for OJT" },
+    { label: "Availability", value: "Part-Time (10–20 hrs/wk)" },
+    { label: "Turnaround", value: "Rapid AI Delivery" },
+    { label: "Service Focus", value: "Web & Tech Support" },
+    { label: "Background", value: "4th-Year BSIT" },
   ];
 
   // Derive unique tags for filtering
@@ -218,6 +289,9 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
           <nav className="hidden md:flex items-center gap-1 text-sm text-neutral-400">
             <a href="#about" className="px-3 py-1.5 rounded-md hover:text-white hover:bg-neutral-800/50 transition-colors">
               About
+            </a>
+            <a href="#services" className="px-3 py-1.5 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 transition-colors font-medium">
+              Services
             </a>
             <a href="#projects" className="px-3 py-1.5 rounded-md hover:text-white hover:bg-neutral-800/50 transition-colors">
               Projects
@@ -291,6 +365,13 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               About
             </a>
             <a 
+              href="#services" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm font-medium text-blue-400 hover:text-blue-300 py-1"
+            >
+              Services
+            </a>
+            <a 
               href="#projects" 
               onClick={() => setMobileMenuOpen(false)}
               className="block text-sm text-neutral-300 hover:text-white py-1"
@@ -330,18 +411,18 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
       </header>
 
       {/* MAIN CONTAINER */}
-      <main className="relative z-10 max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-28">
-
+      <main className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 md:py-20 space-y-16 sm:space-y-24 md:space-y-28">
+        
         {/* HERO SECTION */}
-        <section id="about" className="space-y-8 pt-4">
+        <section id="about" className="space-y-6 sm:space-y-8 pt-2 sm:pt-4">
           
           {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 text-emerald-400 text-xs font-medium tracking-wide shadow-sm shadow-emerald-950/50 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/40 text-emerald-400 text-xs font-medium tracking-wide shadow-sm shadow-emerald-950/50 backdrop-blur-sm leading-snug">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Available for Software Engineering / Web Dev OJT (Remote / Hybrid)
+            Available for Part-Time Remote Technical & Web Support | Flexible Hours
           </div>
 
           <div className="space-y-4">
@@ -349,21 +430,28 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               John Kurt Fajutagana
             </h1>
             <p className="text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-neutral-200 font-semibold">
-              Full-Stack Developer & AI-Augmented Software Builder
+              AI-Augmented Technical VA & Web Specialist
             </p>
           </div>
 
           <p className="text-neutral-300 leading-relaxed max-w-2xl text-base sm:text-lg">
-            4th-year BS Information Technology candidate focused on engineering production-ready web platforms, clinical management systems, and LLM-integrated workflows. Committed to clean database schemas, fast iteration cycles, and practical engineering solutions.
+            4th-year BS Information Technology candidate helping business owners and founders maintain web platforms, fix frontend & database bugs, and wire up fast automated workflows. Fast turnaround backed by modern AI-accelerated implementation.
           </p>
 
           {/* Quick CTAs & Contact Actions */}
           <div className="flex flex-wrap gap-3 pt-2 items-center">
             <a 
-              href="#projects" 
+              href="#services" 
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-500/35 hover:-translate-y-0.5 active:translate-y-0"
             >
-              Explore Projects <ArrowRight className="w-4 h-4" />
+              Client Support & Services <ArrowRight className="w-4 h-4" />
+            </a>
+
+            <a 
+              href="#projects" 
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
+            >
+              Explore Live Projects
             </a>
 
             <button
@@ -403,17 +491,8 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             </a>
 
             <a 
-              href={facebookUrl} 
-              target="_blank" 
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-[#1877f2]"
-            >
-              <FacebookIcon className="w-4 h-4" /> Facebook
-            </a>
-
-            <a 
               href={gmailComposeUrl}
-              target="_blank"
+              target="_blank" 
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-neutral-300 text-sm font-medium transition-all hover:border-neutral-700 hover:text-white"
             >
@@ -435,6 +514,87 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             ))}
           </div>
 
+        </section>
+
+        {/* CLIENT SUPPORT & TECHNICAL SERVICES */}
+        <section id="services" className="space-y-8 scroll-mt-24">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-800 pb-4 gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-blue-400 font-mono text-xs uppercase tracking-wider">
+                <Wrench className="w-4 h-4" /> Client Solutions & Support
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Technical Support & Services</h2>
+            </div>
+            <div className="text-xs text-neutral-400 font-mono">
+              Fast Turnaround • AI-Augmented Delivery
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {services.map((srv, idx) => {
+              const Icon = srv.icon;
+              return (
+                <div 
+                  key={idx}
+                  className={`rounded-2xl border ${srv.border} bg-gradient-to-b ${srv.accent} p-6 sm:p-7 space-y-5 hover:border-neutral-600 transition-all duration-300 backdrop-blur-sm shadow-xl shadow-black/20 flex flex-col justify-between`}
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-white/5">
+                        <Icon className={`w-5 h-5 ${srv.iconColor}`} />
+                      </div>
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-neutral-900/80 border border-neutral-800 text-neutral-400">
+                        {srv.category}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white">
+                      {srv.title}
+                    </h3>
+
+                    <p className="text-sm text-neutral-300 leading-relaxed">
+                      {srv.description}
+                    </p>
+
+                    <div className="pt-2 space-y-2">
+                      {srv.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-center gap-2 text-xs text-neutral-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-neutral-800/60">
+                    {srv.tags.map((t, tIdx) => (
+                      <span key={tIdx} className="px-2 py-0.5 rounded text-[11px] font-mono bg-neutral-900/80 text-neutral-300 border border-neutral-800/80">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Quick Pitch Callout Banner */}
+          <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 via-indigo-950/20 to-neutral-900/40 p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-md">
+            <div className="space-y-1 text-center sm:text-left">
+              <h4 className="text-sm sm:text-base font-semibold text-white flex items-center justify-center sm:justify-start gap-2">
+                <Sparkles className="w-4 h-4 text-blue-400" /> Need flexible technical assistance for 10–20 hrs/week?
+              </h4>
+              <p className="text-xs sm:text-sm text-neutral-400">
+                I assist founders and teams with quick-turnaround site repairs, database integrations, and automated workflows.
+              </p>
+            </div>
+            <a 
+              href="#contact" 
+              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-medium transition-all shadow-md shadow-blue-600/30 shrink-0"
+            >
+              Inquire for Support
+            </a>
+          </div>
         </section>
 
         {/* FEATURED PROJECTS (DYNAMIC REALTIME GITHUB INTEGRATION) */}
@@ -500,7 +660,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               {filteredProjects.map((proj) => (
                 <div 
                   key={proj.id} 
-                  className="group relative rounded-2xl border border-neutral-800/90 bg-neutral-900/40 p-6 sm:p-8 space-y-6 hover:border-neutral-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/20 backdrop-blur-sm"
+                  className="group relative rounded-2xl border border-neutral-800/90 bg-neutral-900/40 p-5 sm:p-8 space-y-5 sm:space-y-6 hover:border-neutral-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/20 backdrop-blur-sm"
                 >
                   {/* Subtle card glow on hover */}
                   <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
@@ -676,16 +836,16 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               </p>
             </div>
 
-            {/* OJT Readiness */}
+            {/* Readiness */}
             <div className="rounded-2xl border border-neutral-800/90 bg-neutral-900/40 p-6 space-y-3">
               <div className="flex items-center gap-2 text-emerald-400 font-medium text-sm">
-                <Briefcase className="w-5 h-5" /> OJT & Industry Readiness
+                <Briefcase className="w-5 h-5" /> Remote Web Support & Technical VA Readiness
               </div>
               <div className="text-xs font-mono text-neutral-400">
-                Available for Remote / Hybrid Opportunities
+                Available for Part-Time Client Work & Remote Engagements
               </div>
               <p className="text-sm text-neutral-300 leading-relaxed pt-1">
-                Eager to integrate into an agile engineering squad. Brings a strong foundation in modern JavaScript/TypeScript frameworks, SQL query design, API development, and proactive problem-solving augmented with AI developer tools.
+                Ready to support founders, agencies, and agile teams. Brings a strong foundation in modern JavaScript/TypeScript frameworks, SQL database administration, API integrations, and proactive problem-solving augmented with AI developer tools.
               </p>
             </div>
           </div>
@@ -724,10 +884,10 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               <Mail className="w-6 h-6" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Let&apos;s Build Something Together
+              Let&apos;s Solve Your Technical Bottlenecks
             </h2>
             <p className="text-neutral-400 text-sm sm:text-base">
-              I am actively looking for an OJT / software engineering internship opportunity. Reach out directly via email, phone, or connect on professional socials!
+              Looking for reliable part-time technical support, website maintenance, or custom automation flows? Reach out directly via email, phone, or connect on professional socials!
             </p>
           </div>
 
