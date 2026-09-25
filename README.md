@@ -1,15 +1,17 @@
 <div align="center">
 
+<img src="./public/profile.jpg" alt="John Kurt Fajutagana" width="130" height="130" style="border-radius: 50%; object-fit: cover; border: 3px solid #3b82f6; box-shadow: 0 4px 20px rgba(59,130,246,0.3);" />
+
 # Hi there, I'm John Kurt Fajutagana 👋
-### Full-Stack Developer & AI-Augmented Software Builder
+### AI-Augmented Technical VA & Web Specialist • Full-Stack Developer
 
 <p align="center">
   <a href="https://kurtfajutagana.vercel.app" target="_blank">
     <img src="https://img.shields.io/badge/🌐_Portfolio-kurtfajutagana.vercel.app-0070F3?style=flat-square" alt="Portfolio" />
   </a>
   &nbsp;
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=OJT%20Opportunity%20Inquiry" target="_blank">
-    <img src="https://img.shields.io/badge/⚡_Status-Available_for_OJT-059669?style=flat-square" alt="Status" />
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=Technical%20Web%20Support%20Inquiry" target="_blank">
+    <img src="https://img.shields.io/badge/⚡_Availability-Part--Time_Remote_Support-059669?style=flat-square" alt="Status" />
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/" target="_blank">
@@ -20,7 +22,7 @@
     <img src="https://img.shields.io/badge/Facebook-Profile-1877F2?style=flat-square&logo=facebook&logoColor=white" alt="Facebook" />
   </a>
   &nbsp;
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=Inquiry%20/%20OJT%20Opportunity" target="_blank">
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=Technical%20Web%20Support%20Inquiry" target="_blank">
     <img src="https://img.shields.io/badge/Email-Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
   </a>
 </p>
@@ -28,7 +30,7 @@
 <br/>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&width=650&lines=4th-Year+BSIT+Student+%E2%80%A2+Graduating+Candidate;Building+Production-Ready+Full-Stack+Web+Apps;AI-Augmented+Software+Engineering+Workflows;Clean+Database+Architecture+%26+RBAC+Systems" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&width=650&lines=AI-Augmented+Web+Support+%E2%80%A2+Technical+VA;Website+Maintenance+%26+Mobile+Bug+Fixes;Automated+Database+Flows+%26+Webhooks;4th-Year+BSIT+Student+%E2%80%A2+Full-Stack+Dev" alt="Typing SVG" />
 </p>
 
 </div>
@@ -37,14 +39,26 @@
 
 ### 🚀 About Me
 
-- 🎓 **Academic Standing:** 4th-Year **Bachelor of Science in Information Technology** student specializing in full-stack web platforms, clinical monitoring systems, and relational databases.
-- 💼 **OJT Readiness:** Actively seeking a **Software Engineering / Web Development OJT / Internship** (Remote or Hybrid) to build robust features and contribute to fast-paced engineering teams.
-- ⚡ **Engineering Philosophy:** I leverage modern AI-assisted workflows and agentic tools to compress development cycles from weeks to days—without sacrificing code quality, testability, or database integrity.
+- 🎓 **Academic Standing:** 4th-Year **Bachelor of Science in Information Technology** candidate specializing in modern web platforms, database architecture, and AI-accelerated workflows.
+- 💼 **Technical VA & Web Support:** Available for **Part-Time Remote Technical & Web Support (10–20 hrs/week)**. I help business owners, founders, and agile teams maintain websites, resolve frontend/database bugs, and wire up integrations fast.
+- ⚡ **AI-Augmented Velocity:** I utilize modern AI developer tools (Cursor, Claude, Gemini) to deliver rapid turnaround on website maintenance, form integrations, and custom automations with precision.
+- 🛡️ **Safe Staging Workflow:** I test all updates on isolated sandboxes and staging previews before publishing—guaranteeing zero downtime for client businesses.
 - 🌐 **Live Website:** [kurtfajutagana.vercel.app](https://kurtfajutagana.vercel.app)
 
 ---
 
-### 🛠️ Technical Arsenal
+### 🛠️ Client Support & Technical Services
+
+| Service | What I Deliver | Technologies |
+| :--- | :--- | :--- |
+| 🔧 **Website Maintenance & Bug Fixes** | Mobile & tablet layout repairs, CSS/Tailwind tweaks, broken navigation/form fixes, and cross-browser styling adjustments. | `Tailwind CSS` • `React` • `Next.js` • `HTML5 / CSS3` |
+| ⚡ **Database & Automation Flows** | Supabase & PostgreSQL setup, form-to-database connections, webhook integrations, and eliminating messy spreadsheets. | `PostgreSQL` • `Supabase` • `MySQL` • `Webhooks / REST` |
+| 🌐 **Landing Pages & Web Operations** | Vercel cloud deployments, custom domain & DNS routing, page speed optimizations, and safe staging previews. | `Next.js` • `Vercel` • `DNS / Domains` • `Git / GitHub` |
+| 🤖 **AI Workflows & Smart Chatbots** | Embedding 24/7 customer inquiry triage bots, LLM API integrations (OpenAI / Claude / Gemini), and automated pre-consultation flows. | `AI Chatbots` • `OpenAI / Claude` • `Prompt Flows` |
+
+---
+
+### 💻 Technical Arsenal
 
 <div align="center">
 
@@ -107,7 +121,7 @@
 
 | Channel | Details | Action |
 | :--- | :--- | :--- |
-| 📧 **Email** | `kurtfajutagana17@gmail.com` | [**✉️ Open in Gmail**](https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=Inquiry%20/%20OJT%20Opportunity) |
+| 📧 **Email** | `kurtfajutagana17@gmail.com` | [**✉️ Open in Gmail**](https://mail.google.com/mail/?view=cm&fs=1&to=kurtfajutagana17@gmail.com&su=Technical%20Web%20Support%20Inquiry) |
 | 📱 **Phone (Primary)** | `09271707436` | [**📞 Call / SMS**](tel:09271707436) |
 | 📱 **Phone (Secondary)** | `09932492435` | [**📞 Call / SMS**](tel:09932492435) |
 | 💼 **LinkedIn** | `John Kurt Fajutagana` | [**🔗 Connect on LinkedIn**](https://www.linkedin.com/in/john-kurt-fajutagana-97b57a377/) |
