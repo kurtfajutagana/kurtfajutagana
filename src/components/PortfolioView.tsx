@@ -437,15 +437,15 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
             {/* Left Column: Title, Subtitle, Bio */}
             <div className="space-y-4 flex-1">
               <div className="space-y-2">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight sm:leading-snug">
                   John Kurt Fajutagana
                 </h1>
-                <p className="text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-neutral-200 font-semibold">
+                <p className="text-lg sm:text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-neutral-200 font-semibold">
                   AI-Augmented Technical VA & Web Specialist
                 </p>
               </div>
 
-              <p className="text-neutral-300 leading-relaxed max-w-xl text-base sm:text-lg">
+              <p className="text-neutral-300 leading-relaxed max-w-xl text-base sm:text-lg text-justify">
                 4th-year BS Information Technology candidate helping business owners and founders maintain web platforms, fix frontend & database bugs, and wire up fast automated workflows. Fast turnaround backed by modern AI-accelerated implementation.
               </p>
             </div>
@@ -455,7 +455,7 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
               {/* Subtle ambient glow */}
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-blue-600/30 via-indigo-500/20 to-cyan-400/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none" />
               
-              <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-3xl p-1.5 bg-neutral-900/80 border border-white/10 shadow-2xl shadow-blue-950/40 backdrop-blur-md">
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-3xl p-1 bg-gradient-to-b from-white/15 to-white/5 border border-white/10 shadow-2xl shadow-blue-950/40 backdrop-blur-md">
                 <div className="relative w-full h-full rounded-[22px] overflow-hidden">
                   <Image
                     src="/profile.jpg"
@@ -464,15 +464,6 @@ export default function PortfolioView({ projects: initialProjects }: PortfolioVi
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     priority
                   />
-                </div>
-
-                {/* Floating status pill */}
-                <div className="absolute bottom-2.5 inset-x-2.5 py-1 px-2.5 rounded-xl bg-[#09090b]/85 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-300 flex items-center justify-between shadow-lg">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="text-emerald-400 font-medium">Available</span>
-                  </span>
-                  <span className="text-blue-400 font-semibold">BSIT &apos;26</span>
                 </div>
               </div>
             </div>
