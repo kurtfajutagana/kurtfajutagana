@@ -75,6 +75,10 @@
 ### 📂 Featured Systems & Repositories
 
 <!-- PROJECTS:START -->
+#### 📌 [DAMS](https://github.com/kurtfajutagana/DAMS) 
+> 🏥 A Web-Based Dental Prescription and Treatment Monitoring System with an AI-Powered Conversational Assistant. • 🏷️ `JavaScript`
+- 🔗 [🌐 **Live Demo**](https://teethtalk.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/DAMS)
+
 #### 📌 [kurtfajutagana](https://github.com/kurtfajutagana/kurtfajutagana) 
 > Personal developer portfolio & GitHub profile engineered with Next.js 16, Tailwind CSS v4, and real-time GitHub repository auto-discovery. • 🏷️ `TypeScript`
 - 🔗 [🌐 **Live Demo**](https://kurtfajutagana.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/kurtfajutagana)
@@ -87,10 +91,6 @@
 > Zero-server, in-browser PostgreSQL 16 instance, visual EXPLAIN ANALYZE plan profiler, and interactive indexing performance lab powered by WebAssembly (PGlite). • 🏷️ `TypeScript`
 - 🔗 [🌐 **Live Demo**](https://pg-wasm-lab.vercel.app/) • [💻 **Source Code**](https://github.com/kurtfajutagana/PG-WasmLab)
 
-#### 📌 [DAMS](https://github.com/kurtfajutagana/DAMS) 
-> 🏥 A Web-Based Dental Prescription and Treatment Monitoring System with an AI-Powered Conversational Assistant. • 🏷️ `JavaScript`
-- 🔗 [🌐 **Live Demo**](https://teethtalk.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/DAMS)
-
 <!-- PROJECTS:END -->
 
 ---
@@ -102,7 +102,7 @@
 
 | 📦 **Public Repos** | ⭐ **Total Stars** | 🍴 **Total Forks** | 🛠️ **Primary Stacks** |
 | :---: | :---: | :---: | :---: |
-| **4** | **0** | **3** | `TypeScript` (2) • `PHP` (1) • `JavaScript` (1) |
+| **4** | **0** | **3** | `TypeScript` (2) • `JavaScript` (1) • `PHP` (1) |
 
 <br/>
 
