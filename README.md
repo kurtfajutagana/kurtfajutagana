@@ -75,13 +75,13 @@
 ### 📂 Featured Systems & Repositories
 
 <!-- PROJECTS:START -->
-#### 📌 [DAMS](https://github.com/kurtfajutagana/DAMS) 
-> 🏥 A Web-Based Dental Prescription and Treatment Monitoring System with an AI-Powered Conversational Assistant. • 🏷️ `JavaScript`
-- 🔗 [🌐 **Live Demo**](https://teethtalk.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/DAMS)
-
 #### 📌 [kurtfajutagana](https://github.com/kurtfajutagana/kurtfajutagana) 
 > Personal developer portfolio & GitHub profile engineered with Next.js 16, Tailwind CSS v4, and real-time GitHub repository auto-discovery. • 🏷️ `TypeScript`
 - 🔗 [🌐 **Live Demo**](https://kurtfajutagana.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/kurtfajutagana)
+
+#### 📌 [DAMS](https://github.com/kurtfajutagana/DAMS) 
+> 🏥 A Web-Based Dental Prescription and Treatment Monitoring System with an AI-Powered Conversational Assistant. • 🏷️ `JavaScript`
+- 🔗 [🌐 **Live Demo**](https://teethtalk.vercel.app) • [💻 **Source Code**](https://github.com/kurtfajutagana/DAMS)
 
 #### 📌 [Faculty-Profiling-System](https://github.com/kurtfajutagana/Faculty-Profiling-System) 
 > 🎓 Cloud-ready Faculty Profiling and Academic Portfolio Management System for Pamantasan ng Lungsod ng Pasig (PLP) • 🏷️ `PHP`
